@@ -1,7 +1,6 @@
 (ns cmddit.views.welcome
   (:require [cmddit.views.common :as common]
             [cmddit.models.user :as user]
-            [cmddit.secrets :as secrets]
             [noir.session :as session]
             [noir.response :as resp])
   (:use noir.core
@@ -14,9 +13,6 @@
             (text-field "username" username)
             (label "password" password)
             (password-field "password" password))
-
-(defpartial user-item [{:keys [username]}]
-            [:li.user username])
 
 (defpage "/welcome" []
          (common/layout
@@ -46,10 +42,6 @@
          (user/register username password)
          (resp/redirect "/users"))
 
-(defpage [:get "/users"] []
-         (common/layout
-           [:ul#users
-             (map user-item (user/all))]))
 
 (defpage [:get "/session"] []
          (common/layout

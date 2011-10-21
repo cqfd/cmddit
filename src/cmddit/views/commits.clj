@@ -14,7 +14,8 @@
 
 (defpage "/commits" []
          (common/layout
-           (map commit-item (commit/all))))
+           [:ul#commits
+             (map commit-item (commit/all))]))
 
 (defpage [:post "/commits"] {:keys [username message]}
          (if-let [commit-id (commit/create {:username username
