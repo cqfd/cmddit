@@ -1,0 +1,8 @@
+/src/cmddit/secrets.clj
+pom.xml
+*jar
+/lib/
+/classes/
+.lein-deps-sum
+*.swp
+.DS_Store
